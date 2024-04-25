@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>ini Dasboard</h1>
+    <p>
+        Selamat datang di SMA Rungkad 01.
+    </p>
 @endsection

@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>ini Presensi</h1>
+    <p>
+        Selamat datang di Presensi.
+    </p>
 @endsection
