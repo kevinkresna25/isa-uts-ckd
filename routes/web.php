@@ -8,43 +8,43 @@ Route::get('/welcome', function () {
 
 
 Route::get('/', function () {
-    return view('dashboard', [
+    return view('umum.dashboard', [
         'title' => 'Dashboard',
     ]);
 });
 
 Route::get('/penilaian', function () {
-    return view('penilaian', [
+    return view('guru.penilaian', [
         'title' => 'Penilaian',
     ]);
 });
 
 Route::get('/presensi', function () {
-    return view('presensi', [
+    return view('guru.presensi', [
         'title' => 'Presensi',
     ]);
 });
 
 Route::get('/jadwalkelas', function () {
-    return view('jadwalkelas', [
+    return view('guru.walikelas.jadwalkelas', [
         'title' => 'Jadwal Kelas',
     ]);
 });
 
 Route::get('/peminjamanbuku', function () {
-    return view('peminjamanbuku', [
+    return view('pustakawan.peminjamanbuku', [
         'title' => 'Peminjaman Buku',
     ]);
 });
 
 Route::get('/pencarianprofil', function () {
-    return view('pencarianprofil', [
+    return view('umum.pencarianprofil', [
         'title' => 'Pencarian Profil',
     ]);
 });
 
 Route::get('/datakaryawan', function () {
-    return view('datakaryawan', [
+    return view('kepsek.datakaryawan', [
         'title' => 'Data Karyawan',
     ]);
 });

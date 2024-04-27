@@ -1,11 +1,12 @@
 @extends('layouts.main')
 
+@section('title', 'Pencarian Profil')
+
 @section('breadcrumb')
     <li class="breadcrumb-item active"><a href="/pencarianprofil">Pencarian Profil</a></li>
 @endsection
 
-@section('content')
-    <p>
-        Selamat datang di Pencarian Profil.
-    </p>
+@section('card')
+    @include('umum.datainfo')
 @endsection
+
