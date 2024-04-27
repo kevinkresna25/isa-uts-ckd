@@ -5,16 +5,16 @@
     <title>SMA Rungkad 01</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
     <meta name="description" content="My UBAYA">
-    <meta name="author" content="CEMAZZ KO DECK Corp.">
+    <meta name="author" content="Cemazz Ko Deck Corp.">
     
-    <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="pages/css/themes/icon.css" rel="stylesheet">
     <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
     <link class="main-stylesheet" href="pages/css/themes/light.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/css/style.css" rel="stylesheet">
-    @include('layouts.thead')
+    <link href="assets/css/style.css" rel="stylesheet">
     
 </head>
 
@@ -23,7 +23,9 @@
 
     <!-- Content -->
     <!-- BEGIN SIDEBPANEL-->
+
     @include('partials.sidebar')
+    
     <!-- END SIDEBAR -->
     <!-- END SIDEBPANEL-->
     <!-- START PAGE-CONTAINER -->
@@ -44,7 +46,7 @@
             <div class="d-flex align-items-center">
                 <!-- START User Info-->
                 <div class="pull-left p-r-10 fs-14 d-lg-inline-block d-none m-l-20">
-                    <span class="semi-bold">LOUIS DEWA VOTERRA</span>
+                    <span class="semi-bold">SI UDIN</span>
                     <small
                         style="display: block; margin-top: -1.3em; position: relative; top: 1em; color: gray; text-align: right;">160422077</small>
                 </div>
@@ -52,7 +54,7 @@
                     <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" aria-label="profile dropdown">
                         <span class="thumbnail-wrapper d32 circular inline">
-                            <img src="https://my.ubaya.ac.idhttps://my.ubaya.ac.id/img/mhs/160422077_m.jpg"
+                            <img src="https://my.ubaya.ac.id/img/mhs/160422077_m.jpg"
                                 alt="" data-src="https://my.ubaya.ac.id/img/mhs/160422077_m.jpg"
                                 data-src-retina="https://my.ubaya.ac.id/img/mhs/160422077_m.jpg"
                                 onerror="this.onerror=null;this.src='/assets/img/profiles/4xs.png';this.setAttribute('data-src',this.src);this.setAttribute('data-src-retina',this.src);"
@@ -60,7 +62,7 @@
                         </span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-                        <a href="#" class="dropdown-item"><span>Signed in as <br /><b>LOUIS DEWA VOTERRA</b> (160422077)</span></a>
+                        <a href="#" class="dropdown-item"><span>Signed in as <br /><b>SI UDIN</b> (160422077)</span></a>
                         <div class="dropdown-divider"></div>
                         <a href="https://ws.ubaya.ac.id/oauth2/logout" class="dropdown-item">Logout</a>
                         <div class="dropdown-divider"></div>
@@ -85,8 +87,8 @@
                         <div class="inner">
                             <!-- START BREADCRUMB -->
                             <ol class="breadcrumb sm-p-b-5">
-                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                                @yield('breadcrumb')
                             </ol>
                         </div>
                     </div>
@@ -133,6 +135,12 @@
     <script src="assets/plugins/feather-icons/feather.min.js" type="text/javascript"></script>
     <script src="assets/plugins/modernizr.custom.js" type="text/javascript"></script>
     <script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    {{-- Untuk Headernya --}}
+    <script src="assets/plugins/popper/umd/popper.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
+    
 
     <!-- END VENDOR JS -->
     <!-- BEGIN CORE TEMPLATE JS -->
