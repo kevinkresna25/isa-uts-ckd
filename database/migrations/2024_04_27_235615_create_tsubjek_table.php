@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tsubjek', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->string('namaSubjek', 45)->nullable();
+            $table->string('namaSubjek', 45);
         });
     }
 

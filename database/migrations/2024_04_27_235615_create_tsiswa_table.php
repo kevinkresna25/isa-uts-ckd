@@ -13,17 +13,20 @@ return new class extends Migration
     {
         Schema::create('tsiswa', function (Blueprint $table) {
             $table->integer('idSiswa')->primary();
-            $table->string('nama', 45)->nullable();
-            $table->string('email', 45)->nullable();
-            $table->string('password', 45)->nullable();
-            $table->string('username', 45)->nullable();
-            $table->date('tanggalLahir')->nullable();
-            $table->enum('jenisKelamin', ['L', 'P'])->nullable();
-            $table->string('alamat', 45)->nullable();
-            $table->string('nomorTelp', 45)->nullable();
+            $table->string('nama', 45);
+            $table->string('email', 45)->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password', 45);
+            $table->string('username', 45)->unique();
+            $table->date('tanggalLahir');
+            $table->enum('jenisKelamin', ['L', 'P']);
+            $table->string('alamat', 45); 
+            $table->string('nomorTelp', 45);
             $table->string('pasFoto', 45)->nullable();
-            $table->date('tanggalMasuk')->nullable();
+            $table->date('tanggalMasuk');
             $table->date('tanggaKeluar')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

@@ -14,12 +14,15 @@ return new class extends Migration
         Schema::create('torangtua', function (Blueprint $table) {
             $table->integer('id')->primary();
             $table->string('nama', 45)->nullable();
-            $table->string('email', 45)->nullable();
-            $table->string('username', 45)->nullable();
-            $table->string('password', 45)->nullable();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('username', 45);
+            $table->string('password');
             $table->string('nomorTelp', 45)->nullable();
-            $table->enum('jenisKelamin', ['L', 'P'])->nullable();
+            $table->enum('jenisKelamin', ['L', 'P']);
             $table->string('hubungan', 45)->nullable();
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

@@ -13,15 +13,19 @@ return new class extends Migration
     {
         Schema::create('tpegawai', function (Blueprint $table) {
             $table->integer('idPegawai')->primary();
-            $table->string('nama', 45)->nullable();
-            $table->string('email', 45)->nullable();
-            $table->string('password', 45)->nullable();
+            $table->string('nama', 45);
+            $table->string('email', 45)->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password', 45);
             $table->string('username', 45)->nullable();
             $table->string('alamat', 45)->nullable();
-            $table->date('tanggalMasuk')->nullable();
-            $table->enum('peran', ['Guru', 'KepalaSekolah', 'Admin'])->nullable();
+            $table->date('tanggalMasuk');
+            $table->enum('peran', ['Guru', 'KepalaSekolah', 'Admin']);
             $table->string('nomorTelp', 45)->nullable();
+            $table->rememberToken();
+            $table->timestamps();
         });
+        
     }
 
     /**
