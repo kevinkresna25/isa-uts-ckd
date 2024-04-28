@@ -197,7 +197,7 @@
                                     <td style="border-bottom: 0;">
                                         <div class="align-self-center">
                                             <a href="/index.php/akademikmhspresensikuliah_classmate/courseCode~1604C045/parallelClass~B/semester~20232"
-                                                class="btn btn-primary"><i class="fa fa-address-book mr-2"></i>Anggota
+                                                class="btn btn-primary"><i data-feather='home'></i>Anggota
                                                 Kelas</a>
                                             <button class="btn btn-secondary" disabled=""
                                                 style="cursor: not-allowed;"><i class="fa fa-close mr-2"></i>Kelas Belum

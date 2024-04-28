@@ -25,15 +25,34 @@
     <div class="sidebar-menu">
         <!-- BEGIN SIDEBAR MENU ITEMS-->
         <ul class="menu-items">
-            <li>
+            {{-- <li>
                 <span class='icon-thumbnail'><i data-feather='home'></i></span>
                 <a href='/'>Home</a>
-            </li>
+            </li> --}}
 
             {{-- Include Sidebar Menu --}}
-            @include('partials.sidebar.akademik')
+            {{-- @include('partials.sidebar.akademik')
             @include('partials.sidebar.perpustakaan')
-            @include('partials.sidebar.sdm')
+            @include('partials.sidebar.sdm') --}}
+            @if (in_array($role, ['siswa', 'guru', 'admin', 'pustakawan', 'kepsek']))
+                <li>
+                    <span class='icon-thumbnail'><i data-feather='home'></i></span>
+                    <a href='/'>Home</a>
+                </li>
+            @endif
+
+            {{-- Sesuaikan dengan role --}}
+            @if (in_array($role, ['siswa', 'guru', 'admin']))
+                @include('partials.sidebar.akademik')
+            @endif
+
+            @if (in_array($role, ['siswa', 'pustakawan']))
+                @include('partials.sidebar.perpustakaan')
+            @endif
+
+            @if ($role == 'kepsek')
+                @include('partials.sidebar.sdm')
+            @endif
 
             <li class="d-lg-none d-xl-none"><a href="https://ws.ubaya.ac.id/oauth2/logout"
                     class="detailed">Logout</a><span class="icon-thumbnail"><i data-feather="lock"></i></span>
