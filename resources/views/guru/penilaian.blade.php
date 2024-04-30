@@ -8,98 +8,130 @@
 
 @section('card')
     @include('umum.datainfo')
-
+    <button type="button" class="btn btn-primary">Primary</button> 
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header border-bottom">
-                    <div class="card-title font-weight-bold" id="jadwalkuliah">Jadwal Bidang Studi</div>
+                    <div class="card-title font-weight-bold" id="jadwalkuliah">Hasil Studi Siswa</div>
                 </div>
                 <div class="card-body pt-3">
                     <div class="table-responsive">
                         <table class="table table-hover" id="table-listambilmk">
                             <thead>
                                 <tr>
-                                    <th scope="col">Hari</th>
-                                    <th scope="col">Jam</th>
-                                    <th scope="col">Ruang</th>
-                                    <th scope="col">Kode MK</th>
-                                    <th scope="col">Nama MK</th>
-                                    <th scope="col">KP</th>
+                                    <th scope="col">No </th>
+                                    <th scope="col">Nama Mata Pelajaran</th>
+                                    <th scope="col">NTS</th>
+                                    <th scope="col">NAS</th>
+                                    <th scope="col">Nilai Akhir</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style="border-bottom: 0;">Senin</td>
-                                    <td style="border-bottom: 0;">09:45 - 12:30</td>
-                                    <td style="border-bottom: 0;">TG 03.04</td>
-                                    <td style="border-bottom: 0;">1604C441</td>
-                                    <td style="border-bottom: 0;">Cloud Computing</td>
-                                    <td style="border-bottom: 0;">A</td>
+                                    <td style="border-bottom: 0;">1</td>
+                                    <td style="border-bottom: 0;">Pendidikan Agama dan Budi Pekerti</td>
+                                    <td style="border-bottom: 0;">98</td>
+                                    <td style="border-bottom: 0;">98</td>
+                                    <td style="border-bottom: 0;"> 98</td>
                                 </tr>
                                 <tr>
-                                    <td style="border-bottom: 0;">Senin</td>
-                                    <td style="border-bottom: 0;">13:00 - 14:50</td>
-                                    <td style="border-bottom: 0;">TC 04.01A</td>
-                                    <td style="border-bottom: 0;">1604C033</td>
-                                    <td style="border-bottom: 0;">Database</td>
-                                    <td style="border-bottom: 0;">C</td>
+                                    <td style="border-bottom: 0;">2</td>
+                                    <td style="border-bottom: 0;">Pendidikan Pancasila dan Kewarganegaraan</td>
+                                    <td style="border-bottom: 0;">90</td>
+                                    <td style="border-bottom: 0;">92</td>
+                                    <td style="border-bottom: 0;"> 91</td>
                                 </tr>
                                 <tr>
-                                    <td style="border-bottom: 0;">Selasa</td>
-                                    <td style="border-bottom: 0;">07:00 - 09:45</td>
-                                    <td style="border-bottom: 0;">TF 03.02</td>
-                                    <td style="border-bottom: 0;">1604C045</td>
-                                    <td style="border-bottom: 0;">Information Security and Assurance</td>
-                                    <td style="border-bottom: 0;">B</td>
+                                    <td style="border-bottom: 0;">3</td>
+                                    <td style="border-bottom: 0;">Bahasa Indonesia</td>
+                                    <td style="border-bottom: 0;">90</td>
+                                    <td style="border-bottom: 0;">91</td>
+                                    <td style="border-bottom: 0;"> 90</td>
                                 </tr>
                                 <tr>
-                                    <td style="border-bottom: 0;">Selasa</td>
-                                    <td style="border-bottom: 0;">10:40 - 12:30</td>
-                                    <td style="border-bottom: 0;">TF 02.02</td>
-                                    <td style="border-bottom: 0;">1600C106</td>
-                                    <td style="border-bottom: 0;">Aljabar Linier</td>
-                                    <td style="border-bottom: 0;">B</td>
+                                    <td style="border-bottom: 0;">4</td>
+                                    <td style="border-bottom: 0;">Matematika (Umum)</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
                                 </tr>
                                 <tr>
-                                    <td style="border-bottom: 0;">Rabu</td>
-                                    <td style="border-bottom: 0;">07:00 - 09:45</td>
-                                    <td style="border-bottom: 0;">TB 01.01C</td>
-                                    <td style="border-bottom: 0;">1604C043</td>
-                                    <td style="border-bottom: 0;">Web Programming</td>
-                                    <td style="border-bottom: 0;">B</td>
+                                    <td style="border-bottom: 0;">5</td>
+                                    <td style="border-bottom: 0;">Sejarah Indonesia</td>
+                                    <td style="border-bottom: 0;">91</td>
+                                    <td style="border-bottom: 0;">93</td>
+                                    <td style="border-bottom: 0;"> 92</td>
                                 </tr>
                                 <tr>
-                                    <td style="border-bottom: 0;">Rabu</td>
-                                    <td style="border-bottom: 0;">13:00 - 15:45</td>
-                                    <td style="border-bottom: 0;">TB 01.01C</td>
-                                    <td style="border-bottom: 0;">1604C046</td>
-                                    <td style="border-bottom: 0;">Data Science Programming</td>
-                                    <td style="border-bottom: 0;">E</td>
+                                    <td style="border-bottom: 0;">6</td>
+                                    <td style="border-bottom: 0;">Bahasa Inggris</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
                                 </tr>
                                 <tr>
-                                    <td style="border-bottom: 0;">Rabu</td>
-                                    <td style="border-bottom: 0;">15:45 - 17:35</td>
-                                    <td style="border-bottom: 0;">TC 04.01A</td>
-                                    <td style="border-bottom: 0;">1604C033</td>
-                                    <td style="border-bottom: 0;">Database</td>
-                                    <td style="border-bottom: 0;">C</td>
+                                    <td style="border-bottom: 0;">7</td>
+                                    <td style="border-bottom: 0;">Seni Budaya</td>
+                                    <td style="border-bottom: 0;">92</td>
+                                    <td style="border-bottom: 0;">94</td>
+                                    <td style="border-bottom: 0;">93</td>
                                 </tr>
                                 <tr>
-                                    <td style="border-bottom: 0;">Kamis</td>
-                                    <td style="border-bottom: 0;">09:45 - 12:30</td>
-                                    <td style="border-bottom: 0;">TF 03.03</td>
-                                    <td style="border-bottom: 0;">1604C042</td>
-                                    <td style="border-bottom: 0;">AI Fundamental</td>
-                                    <td style="border-bottom: 0;">A</td>
+                                    <td style="border-bottom: 0;">8</td>
+                                    <td style="border-bottom: 0;">Pendidikan Jasmani Olahraga dan Kesehatan</td>
+                                    <td style="border-bottom: 0;">98</td>
+                                    <td style="border-bottom: 0;">96</td>
+                                    <td style="border-bottom: 0;"> 97</td>
                                 </tr>
                                 <tr>
-                                    <td style="border-bottom: 0;">Kamis</td>
-                                    <td style="border-bottom: 0;">13:00 - 15:45</td>
-                                    <td style="border-bottom: 0;">LA 02.06B</td>
-                                    <td style="border-bottom: 0;">1604C044</td>
-                                    <td style="border-bottom: 0;">Distributed Programming</td>
-                                    <td style="border-bottom: 0;">A</td>
+                                    <td style="border-bottom: 0;">9</td>
+                                    <td style="border-bottom: 0;">Prakarya dan Kewirausahaan</td>
+                                    <td style="border-bottom: 0;">92</td>
+                                    <td style="border-bottom: 0;">94</td>
+                                    <td style="border-bottom: 0;">93</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 0;">10</td>
+                                    <td style="border-bottom: 0;">Bahasa Jawa</td>
+                                    <td style="border-bottom: 0;">90</td>
+                                    <td style="border-bottom: 0;">92</td>
+                                    <td style="border-bottom: 0;"> 91</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 0;">11</td>
+                                    <td style="border-bottom: 0;">Matematika Peminatan</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 0;">12</td>
+                                    <td style="border-bottom: 0;">Fisika</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 0;">13</td>
+                                    <td style="border-bottom: 0;">Kimia</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 0;">14</td>
+                                    <td style="border-bottom: 0;">Biologi</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                    <td style="border-bottom: 0;">100</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 0;">15</td>
+                                    <td style="border-bottom: 0;">Ekonomi</td>
+                                    <td style="border-bottom: 0;">98</td>
+                                    <td style="border-bottom: 0;">98</td>
+                                    <td style="border-bottom: 0;">98</td>
                                 </tr>
                             </tbody>
                         </table>

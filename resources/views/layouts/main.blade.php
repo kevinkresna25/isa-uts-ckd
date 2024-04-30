@@ -112,6 +112,7 @@
 
                     <!-- END ROW -->
                 </div>
+               
                 <!-- END CONTAINER FLUID -->
             </div>
             <!-- END PAGE CONTENT -->
