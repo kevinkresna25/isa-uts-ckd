@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tkelas', function (Blueprint $table) {
-            $table->foreign(['tahunSekolah_idtahunSekolah'], 'fk_tKelas_tahunSekolah1')->references(['idtahunSekolah'])->on('tahunsekolah')->onUpdate('no action')->onDelete('no action');
-            $table->foreign(['idGuru'], 'fk_tSubjek_has_tPegawai_tPegawai1')->references(['idPegawai'])->on('tpegawai')->onUpdate('no action')->onDelete('no action');
-            $table->foreign(['tSubjek_id'], 'fk_tSubjek_has_tPegawai_tSubjek')->references(['id'])->on('tsubjek')->onUpdate('no action')->onDelete('no action');
+            $table->foreign('tahunSekolah_idtahunSekolah')->references(['idtahunSekolah'])->on('tahunsekolah')->onUpdate('no action')->onDelete('no action');
+            $table->foreign('idGuru')->references(['idPegawai'])->on('tpegawai')->onUpdate('no action')->onDelete('no action');
+            $table->foreign('tSubjek_id')->references(['id'])->on('tsubjek')->onUpdate('no action')->onDelete('no action');
         });
     }
 

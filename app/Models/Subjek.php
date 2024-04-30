@@ -11,6 +11,7 @@ class Subjek extends Model
 {
     use HasFactory;
 
+    protected $table = 'tsubjek'; 
     protected $fillable = [ 
         "namaSubjek",
     ]; 

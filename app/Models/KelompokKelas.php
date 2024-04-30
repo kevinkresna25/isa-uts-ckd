@@ -16,6 +16,8 @@ class KelompokKelas extends Model
         "namaKelas"   
     ]; 
 
+    protected $table = 'tKelompokKelas'; 
+
     function Siswa()
     {
         return $this->hasMany(Siswa::class, "tKelompokKelas_id", "id");

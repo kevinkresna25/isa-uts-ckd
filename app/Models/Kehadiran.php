@@ -9,6 +9,8 @@ class Kehadiran extends Model
 {
     use HasFactory;
 
+    protected $table = 'tKehadiran'; 
+    
     protected $fillable = [ 
         "tanggal",
         "statusHadir",

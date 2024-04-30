@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tahunsekolah', function (Blueprint $table) {
-            $table->integer('idtahunSekolah')->primary();
+            $table->id('idtahunSekolah');
+            $table->timestamps();   
             $table->year('tahun')->nullable();
             $table->dateTime('startDate')->nullable();
             $table->dateTime('endDate')->nullable();

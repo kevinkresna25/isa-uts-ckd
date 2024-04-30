@@ -12,6 +12,7 @@ class TahunSekolah extends Model
 {
     use HasFactory;
     
+    protected $table = "TahunSekolah";
     protected $fillable = [ 
         "tahun",
         "startDate",

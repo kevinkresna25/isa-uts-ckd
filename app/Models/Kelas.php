@@ -9,6 +9,7 @@ class Kelas extends Model
 {
     use HasFactory;
 
+    protected $table = 'tKelas'; 
     protected $fillable = [
         "lokasiKelas",
         "tanggal",

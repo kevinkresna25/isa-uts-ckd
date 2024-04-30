@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tkelompokkelas', function (Blueprint $table) {
-            $table->foreign(['tahunSekolah_idtahunSekolah'], 'fk_tKelompokKelas_tahunSekolah1')->references(['idtahunSekolah'])->on('tahunsekolah')->onUpdate('no action')->onDelete('no action');
-            $table->foreign(['idGuru'], 'fk_tKelompokKelas_tPegawai1')->references(['idPegawai'])->on('tpegawai')->onUpdate('no action')->onDelete('no action');
+            $table->foreign('tahunSekolah_idtahunSekolah')->references(['idtahunSekolah'])->on('tahunsekolah')->onUpdate('no action')->onDelete('no action');
+            $table->foreign('idGuru')->references(['idPegawai'])->on('tpegawai')->onUpdate('no action')->onDelete('no action');
         });
     }
 
@@ -23,6 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('tkelompokkelas', function (Blueprint $table) {
+            $table->timestamps();
             $table->dropForeign('fk_tKelompokKelas_tahunSekolah1');
             $table->dropForeign('fk_tKelompokKelas_tPegawai1');
         });

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('torangtua', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id('id');
             $table->string('nama', 45)->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

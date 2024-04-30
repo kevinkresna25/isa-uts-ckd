@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tkelompokkelas', function (Blueprint $table) {
-            $table->integer('idGuru')->index('fk_tkelompokkelas_tpegawai1_idx');
+            $table->foreignId('idGuru');
             $table->string('namaKelas', 45)->nullable();
-            $table->integer('id')->primary(); 
-            $table->integer('tahunSekolah_idtahunSekolah')->index('fk_tkelompokkelas_tahunsekolah1_idx');
+            $table->id('id');
+            $table->foreignId('tahunSekolah_idtahunSekolah');
+            $table->timestamps();
         });
     }
 

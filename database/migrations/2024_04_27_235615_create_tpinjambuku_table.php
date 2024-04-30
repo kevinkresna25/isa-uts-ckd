@@ -12,14 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tpinjambuku', function (Blueprint $table) {
-            $table->integer('tSiswa_idSiswa')->index('fk_tsiswa_has_tbuku_tsiswa1_idx');
-            $table->integer('tBuku_idBuku')->index('fk_tsiswa_has_tbuku_ tbuku1_idx');
+            $table->id('id'); 
+            $table->foreignId('tSiswa_idSiswa');
+            $table->foreignId('tBuku_idBuku');
             $table->dateTime('tanggalPinjam')->nullable();
             $table->dateTime('tanggalKembali')->nullable();
             $table->boolean('statusKembali'); 
-            $table->integer('tPegawai_idPegawai')->index('fk_tpinjambuku_tpegawai1_idx');
-
-            $table->primary(['tSiswa_idSiswa', 'tBuku_idBuku']);
+            $table->foreignId('tPegawai_idPegawai');
+            $table->timestamps();
+            
         });
     }
 

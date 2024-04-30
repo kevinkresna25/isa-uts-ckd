@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('torangtua_has_tsiswa', function (Blueprint $table) {
-            $table->integer('tOrangTua_id')->index('fk_torangtua_has_tsiswa_torangtua1_idx');
-            $table->integer('tSiswa_idSiswa')->index('fk_torangtua_has_tsiswa_tsiswa1_idx');
-
+            $table->foreignId('tOrangTua_id');
+            $table->foreignId('tSiswa_idSiswa');
+            $table->timestamps();
+            
             $table->primary(['tOrangTua_id', 'tSiswa_idSiswa']);
         });
     }

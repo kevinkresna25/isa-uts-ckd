@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tbuku', function (Blueprint $table) {
-            $table->integer('idBuku')->primary();
+            $table->id('idBuku');
+            $table->timestamps();
             $table->string('namaBuku', 45)->nullable();
             $table->string('pengarangBuku', 45)->nullable();
             $table->string('deskripsiBuku', 45)->nullable();

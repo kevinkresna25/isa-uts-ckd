@@ -12,18 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('trapor', function (Blueprint $table) {
-            $table->integer('tSiswa_idSiswa')->index('fk_tsubjek_has_tsiswa_tsiswa1_idx');
+            $table->id('id'); 
+            $table->foreignId('tSiswa_idSiswa');
             $table->double('nilaiUTS')->nullable();
             $table->double('nilaiUAS')->nullable();
             $table->double('nilaiTugas')->nullable();
             $table->double('nilaiKeterampilan')->nullable();
             $table->double('nilaiAfektif')->nullable();
-            $table->integer('idGuru')->index('fk_trapor_tpegawai1_idx');
+            $table->foreignId('idGuru');
             $table->string('pendapatGuru', 45)->nullable();
-            $table->integer('tSubjek_id')->index('fk_trapor_tsubjek1_idx');
-            $table->integer('tahunSekolah_idtahunSekolah')->index('fk_trapor_tahunsekolah1_idx');
+            $table->foreignId('tSubjek_id');
+            $table->foreignId('tahunSekolah_idtahunSekolah');
+            $table->timestamps();
+            
 
-            $table->primary(['tSiswa_idSiswa']);
         });
     }
 

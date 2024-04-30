@@ -11,6 +11,7 @@ class OrangTua extends Model
 {
     use HasFactory;
 
+    protected $table = 'tOrangTua';
     protected $fillable = [
         "id",
         "nama",

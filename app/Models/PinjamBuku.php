@@ -9,6 +9,7 @@ class PinjamBuku extends Model
 {
     use HasFactory;
 
+    protected $table = 'tPinjamBuku'; 
     protected $fillable = [ 
         "tanggalPinjam",
         "tanggalKembali",

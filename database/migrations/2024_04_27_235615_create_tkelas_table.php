@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('tkelas', function (Blueprint $table) {
 
-            $table->integer('id')->primary(); 
-            $table->integer('tSubjek_id')->index('fk_tsubjek_has_tpegawai_tsubjek_idx');
-            $table->integer('idGuru')->index('fk_tsubjek_has_tpegawai_tpegawai1_idx');
+            $table->id('id'); 
+            $table->foreignId('tSubjek_id');
+            $table->foreignId('idGuru');
             $table->string('lokasiKelas', 45)->nullable();
             $table->date('tanggal')->nullable();
             $table->time('jamKelas')->nullable();
-            $table->integer('tahunSekolah_idtahunSekolah')->index('fk_tkelas_tahunsekolah1_idx');
+            $table->foreignId('tahunSekolah_idtahunSekolah');
+            $table->timestamps();
         });
     }
 

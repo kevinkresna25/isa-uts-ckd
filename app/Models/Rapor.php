@@ -13,6 +13,7 @@ class Rapor extends Model
 {
     use HasFactory;
 
+    protected $table = 'trapor';
     protected $fillable = [ 
         "nilaiUTS",
         "nilaiUAS",

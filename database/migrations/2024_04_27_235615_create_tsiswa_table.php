@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tsiswa', function (Blueprint $table) {
-            $table->integer('idSiswa')->primary();
-            $table->integer('tKelompokKelas_id')->index('fk_tkelompokkelas_tsiswa1_idx');
+            $table->id('idSiswa');
+            $table->foreignId('tKelompokKelas_id');
             $table->string('nama', 45);
             $table->string('email', 45)->unique();
             $table->timestamp('email_verified_at')->nullable();
