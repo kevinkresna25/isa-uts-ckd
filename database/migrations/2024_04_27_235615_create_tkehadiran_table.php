@@ -15,10 +15,9 @@ return new class extends Migration
             $table->integer('tSiswa_idSiswa')->index('fk_tkelas_has_tsiswa_tsiswa1_idx');
             $table->dateTime('tanggal')->nullable();
             $table->tinyInteger('statusHadir')->nullable();
-            $table->integer('tKelas_tSubjek_id');
-            $table->integer('tKelas_idGuru');
+            $table->integer('tKelas_id'); 
 
-            $table->index(['tKelas_tSubjek_id', 'tKelas_idGuru'], 'fk_tkehadiran_tkelas1_idx');
+            $table->index(['tKelas_id'], 'fk_tkehadiran_tkelas1_idx');
             $table->primary(['tSiswa_idSiswa']);
         });
     }

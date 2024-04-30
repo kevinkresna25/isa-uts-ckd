@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::table('tkelompokkelas', function (Blueprint $table) {
             $table->foreign(['tahunSekolah_idtahunSekolah'], 'fk_tKelompokKelas_tahunSekolah1')->references(['idtahunSekolah'])->on('tahunsekolah')->onUpdate('no action')->onDelete('no action');
             $table->foreign(['idGuru'], 'fk_tKelompokKelas_tPegawai1')->references(['idPegawai'])->on('tpegawai')->onUpdate('no action')->onDelete('no action');
-            $table->foreign(['tSiswa_idSiswa'], 'fk_tKelompokKelas_tSiswa1')->references(['idSiswa'])->on('tsiswa')->onUpdate('no action')->onDelete('no action');
         });
     }
 
@@ -26,7 +25,6 @@ return new class extends Migration
         Schema::table('tkelompokkelas', function (Blueprint $table) {
             $table->dropForeign('fk_tKelompokKelas_tahunSekolah1');
             $table->dropForeign('fk_tKelompokKelas_tPegawai1');
-            $table->dropForeign('fk_tKelompokKelas_tSiswa1');
         });
     }
 };

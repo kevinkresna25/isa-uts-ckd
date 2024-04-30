@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tkelompokkelas', function (Blueprint $table) {
             $table->integer('idGuru')->index('fk_tkelompokkelas_tpegawai1_idx');
-            $table->integer('tSiswa_idSiswa')->index('fk_tkelompokkelas_tsiswa1_idx');
             $table->string('namaKelas', 45)->nullable();
+            $table->integer('id')->primary(); 
             $table->integer('tahunSekolah_idtahunSekolah')->index('fk_tkelompokkelas_tahunsekolah1_idx');
         });
     }
