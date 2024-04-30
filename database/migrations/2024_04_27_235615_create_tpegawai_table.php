@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('username', 45)->nullable();
             $table->string('alamat', 45)->nullable();
             $table->date('tanggalMasuk');
-            $table->enum('peran', ['Guru', 'KepalaSekolah', 'Admin']);
+            $table->enum('peran', ['Guru', 'Admin', 'Pustakawan']);
             $table->string('nomorTelp', 45)->nullable();
             $table->rememberToken();
             $table->timestamps();
