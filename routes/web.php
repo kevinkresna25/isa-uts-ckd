@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\PegawaiController; 
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\PinjamBukuController;
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -109,6 +110,9 @@ Route::get('/pustakapeminjamanbuku', function () {
     ]);
 });
 
+Route::get('/pustakapeminjamanbuku', [PinjamBukuController::class, 'create'])->name('peminjaman.create');
+Route::post('/pustakapeminjamanbuku', [PinjamBukuController::class, 'store'])->name('peminjaman.store');
+
 Route::get('/pustakatambahbuku', function () {
     return view('pustakawan.pustakatambahbuku', [
         'title' => 'Tambah Buku',
@@ -128,4 +132,3 @@ Route::get('/datakaryawan', function () {
         'role' => 'kepsek',
     ]);
 });
-
