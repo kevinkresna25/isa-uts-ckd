@@ -1,10 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BukuController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
+// AUTH
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 // UMUM
 
@@ -87,6 +98,15 @@ Route::get('/pustakapeminjamanbuku', function () {
     ]);
 });
 
+Route::get('/pustakatambahbuku', function () {
+    return view('pustakawan.pustakatambahbuku', [
+        'title' => 'Tambah Buku',
+        'role' => 'pustaka',
+    ]);
+});
+
+Route::get('/pustakatambahbuku', [BukuController::class, 'create'])->name('tambahbuku.create');
+Route::post('/pustakatambahbuku', [BukuController::class, 'store'])->name('buku.store');
 
 
 // KEPSEK
