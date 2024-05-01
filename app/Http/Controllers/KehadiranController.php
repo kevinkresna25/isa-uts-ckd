@@ -4,62 +4,33 @@ namespace App\Http\Controllers;
 
 use App\Models\Kehadiran;
 use Illuminate\Http\Request;
+use App\Models\Kelas; 
 
 class KehadiranController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $kelas = Kelas::find($id); 
+        $listPresensi = Kehadiran::whereBelongsTo($kelas); 
+        return view('kehadiran.index', compact('listPresensi')); 
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Kehadiran $kehadiran)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Kehadiran $kehadiran)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kehadiran $kehadiran)
+    public function update(Request $request, $id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Kehadiran $kehadiran)
-    {
-        //
+        $presensi = Kehadiran::Find($id); 
+        $request->validate([
+            'statusHadir' => 'required|boolean'
+        ]);
+        $presensi->update(
+            [
+                'statusHadir' => $request->statusHadir 
+            ]
+        );
+        return redirect()->route('kehadiran.index')->with('success', 'Presensi berhasil diubah');
     }
 }

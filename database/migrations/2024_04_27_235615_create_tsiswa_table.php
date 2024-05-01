@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tsiswa', function (Blueprint $table) {
             $table->id('idSiswa');
-            $table->foreignId('tKelompokKelas_id');
+            $table->foreignId('tKelompokKelas_id')->nullable();
             $table->string('nama', 45);
             $table->string('email', 45)->unique();
             $table->timestamp('email_verified_at')->nullable();

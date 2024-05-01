@@ -19,4 +19,23 @@ class Kelas extends Model
     protected $guarded = [ 
         "id"
     ]; 
+    function Guru()
+    {
+        return $this->belongsTo(Pegawai::class, "idGuru", "idPegawai"); 
+    }
+    function KelompokKelas()
+    {
+        return $this->belongsTo(KelompokKelas::class, "tkelompokkelas_id", "id"); 
+    }
+    function TahunSekolah()
+    {
+        return $this->belongsTo(TahunSekolah::class, "tahunSekolah_idtahunSekolah", "idtahunSekolah"); 
+    }
+    function Kehadiran(){
+        return $this->hasMany(Kehadiran::class);
+    }
+    function Subjek()
+    {
+        return $this->belongsto(Subjek::class, "tSubjek_id", "id"); 
+    }
 }

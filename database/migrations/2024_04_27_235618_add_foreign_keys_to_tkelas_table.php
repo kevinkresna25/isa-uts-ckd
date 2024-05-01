@@ -15,6 +15,7 @@ return new class extends Migration
             $table->foreign('tahunSekolah_idtahunSekolah')->references(['idtahunSekolah'])->on('tahunsekolah')->onUpdate('no action')->onDelete('no action');
             $table->foreign('idGuru')->references(['idPegawai'])->on('tpegawai')->onUpdate('no action')->onDelete('no action');
             $table->foreign('tSubjek_id')->references(['id'])->on('tsubjek')->onUpdate('no action')->onDelete('no action');
+            $table->foreign('tkelompokkelas_id')->references(['id'])->on('tkelompokkelas')->onUpdate('no action')->onDelete('no action');
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->dropForeign('fk_tKelas_tahunSekolah1');
             $table->dropForeign('fk_tSubjek_has_tPegawai_tPegawai1');
             $table->dropForeign('fk_tSubjek_has_tPegawai_tSubjek');
+            $table->dropForeign('tkelompokkelas_id');
         });
     }
 };

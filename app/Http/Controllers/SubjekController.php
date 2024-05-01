@@ -12,7 +12,8 @@ class SubjekController extends Controller
      */
     public function index()
     {
-        //
+        $listSubjek = Subjek::all(); 
+        return view('subjek.index', compact('listSubjek'));
     }
 
     /**
@@ -20,7 +21,7 @@ class SubjekController extends Controller
      */
     public function create()
     {
-        //
+        return view('subjek.create');
     }
 
     /**
@@ -28,38 +29,19 @@ class SubjekController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "namaSubjek" => 'required|string'
+        ]);
+        $subjek = new Subjek([
+            "namaSubjek" => $request->namaSubjek
+        ]);
+        $subjek->save(); 
+        return redirect()->route('subjek.create')->with('success', 'Subjek berhasil ditambahkan');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Subjek $subjek)
+    public function delete($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Subjek $subjek)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Subjek $subjek)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Subjek $subjek)
-    {
-        //
+        $subjek = Subjek::find($id); 
+        $subjek->delete(); 
+        return redirect()->route('subjek.index')->with('success', 'Subjek berhasil dihapus');
     }
 }

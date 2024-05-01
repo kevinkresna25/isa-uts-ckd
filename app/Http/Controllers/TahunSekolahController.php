@@ -12,7 +12,8 @@ class TahunSekolahController extends Controller
      */
     public function index()
     {
-        //
+        $tahunSekolah = TahunSekolah::all(); 
+        return view('tahunSekolah.index', compact('tahunSekolah'));
     }
 
     /**
@@ -20,7 +21,7 @@ class TahunSekolahController extends Controller
      */
     public function create()
     {
-        //
+        return view('tahunSekolah.create');
     }
 
     /**
@@ -28,38 +29,26 @@ class TahunSekolahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "tahun" => 'required|interger',
+            "startDate" => 'required|date',
+            "endDate" => 'required|date'
+        ]);
+        $tahunSekolah = new TahunSekolah([
+            "tahun" => $request->tahun,
+            "startDate" => $request->startDate,
+            "endDate" => $request->endDate
+        ]); 
+        $tahunSekolah->save(); 
+        return redirect()->route('tahunSekolah.create')->with('success', 'Tahun Sekolah berhasil ditambahkan');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(TahunSekolah $tahunSekolah)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(TahunSekolah $tahunSekolah)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, TahunSekolah $tahunSekolah)
-    {
-        //
-    }
-
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TahunSekolah $tahunSekolah)
+    public function delete($id)
     {
-        //
+        $tahunSekolah = TahunSekolah::find($id); 
+        $tahunSekolah->delete(); 
+        return redirect()->route('tahunSekolah.index')->with('success', 'Tahun Sekolah berhasil dihapus');
     }
 }

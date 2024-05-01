@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id');
             $table->foreignId('tSiswa_idSiswa');
             $table->dateTime('tanggal')->nullable();
-            $table->tinyInteger('statusHadir')->nullable();
+            $table->tinyInteger('statusHadir')->default(0);
             $table->foreignId('tKelas_id'); 
             $table->timestamps();
         });
