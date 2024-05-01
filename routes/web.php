@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PegawaiController; 
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -24,6 +25,16 @@ Route::get('/', function () {
         'title' => 'Dashboard',
     ]);
 });
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/dataKaryawan', [PegawaiController::class, 'index'])->name('dataKaryawan');
+Route::get('/tambahKaryawan', [PegawaiController::class, 'create'])->name('kepsek.tambahkaryawan');
+Route::post('/tambahKaryawan', [PegawaiController::class, 'store']);
 
 Route::get('/pencarianprofil', function () {
     return view('umum.pencarianprofil', [

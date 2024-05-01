@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
+use App\Models\User; 
+use Illuminate\Support\Facades\Hash;
 
 class PegawaiController extends Controller
 {
@@ -13,12 +15,12 @@ class PegawaiController extends Controller
     public function index()
     {
         $listPegawai = Pegawai::all(); 
-        return view('pegawai.index', compact('listPegawai'));
+        return view('kepsek.datakaryawan', compact('listPegawai'));
     }
 
     public function create()
     {
-        return view('pegawai.create');
+        return view('kepsek.tambahkaryawan');
     }
 
     /**
@@ -26,36 +28,40 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'username' => ['required', 'min:3', 'max:45', 'unique:users'],
+            'email' => 'required|email:dns|unique:users',
+            'password' => 'required|min:5|max:45',
+            'role' => 'string|in:Siswa,Guru,Admin,Pustakawan'
+        ]);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        $user = User::create($validatedData);
+        $userId = $user->id; 
+
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:tpegawai',
-            'username' => 'required|string|max:255|unique:tpegawai',
-            'password' => 'required|string|min:8',
+            'nama' => 'required|string|max:255',
             'alamat' => 'required|string',
             'tanggalMasuk' => 'required|date',
-            'peran' => 'required|string|in:Guru, Admin, Pustakawan',
+            "user_id" => "exists:users, id",
             'nomorTelp' => 'required|string',
         ]);
 
         $pegawai = new Pegawai([
-            'name' => $request->name,
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => bcrypt($request->password),
+            'nama' => $request->nama,
             'alamat' => $request->alamat,
             'tanggalMasuk' => $request->tanggalMasuk,
-            'peran' => $request->peran,
+            'user_id' => $userId, 
             'nomorTelp' => $request->nomorTelp,
         ]);
 
         $pegawai->save();
-        return redirect()->route('pegawai.create')->with('success', 'Pegawai berhasil ditambahkan');
+        return redirect()->route('kepsek.tambahkaryawan')->with('success', 'Pegawai berhasil ditambahkan');
     }
 
     public function show($id)
     {
         $Pegawai = Pegawai::find($id); 
-        return view('pegawai.view', compact('Pegawai'));
+        return view('kepsek.view', compact('Pegawai'));
     }
 
     /**
@@ -63,7 +69,7 @@ class PegawaiController extends Controller
      */
     public function edit($id)
     {
-        return view('pegawai.edit', compact('Pegawai'));
+        return view('kepsek.edit', compact('Pegawai'));
     }
 
     /**
@@ -74,23 +80,15 @@ class PegawaiController extends Controller
         $Pegawai = Pegawai::find($id);
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:tpegawai',
-            'username' => 'required|string|max:255|unique:tpegawai',
-            'password' => 'required|string|min:8',
             'alamat' => 'required|string',
             'tanggalMasuk' => 'required|date',
-            'peran' => 'required|string|in:Guru, Admin, Pustakawan',
             'nomorTelp' => 'required|string',
         ]);
 
         $Pegawai->update([
             'name' => $request->name,
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => $request->has('password') ? bcrypt($request->password) : $Pegawai->password,
             'alamat' => $request->alamat,
             'tanggalMasuk' => $request->tanggalMasuk,
-            'peran' => $request->peran,
             'nomorTelp' => $request->nomorTelp,
         ]);
 

@@ -16,10 +16,6 @@ class Siswa extends Model
     protected $table = 'tsiswa'; 
     protected $fillable = [
         "nama",
-        "email",
-        "email_verified_at",
-        "password",
-        "username",
         "tanggalLahir",
         "jenisKelamin",
         "alamat",
@@ -27,17 +23,21 @@ class Siswa extends Model
         "pasFoto",
         "tanggalMasuk",
         "tanggaKeluar",
-        "remember_token",
-        "created_at",
-        "updated_at",
+        "user_id", 
+        "tKelompokKelas_id"
     ];
     protected $guarded = [
         "idSiswa"
     ];
     protected $hidden = [
-        "password"
+        "password",
+        "created_at",
+        "updated_at"
     ]; 
 
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
     function OrangTua()
     {
         return $this->belongsToMany(OrangTua::class, 'tOrangTua_has_tSiswa', 'tSiswa_idSiswa', 'tOrangTua_id'); 

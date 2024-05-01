@@ -27,38 +27,32 @@ class SiswaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:tsiswa',
-            'password' => 'required|string|min:8',
-            'username' => 'required|string|max:255|unique:tsiswa',
-            "jenisKelamin" => 'required|string|in: L, P',
-            'tanggalLahir' => 'required|date',
-            'alamat' => 'required|string',
-            'nomorTelp' => 'required|string',
-            'pasFoto' => 'required|string',
-            'tanggalMasuk' => 'required|date',
-            'tanggalKeluar' => 'required|date',
-        ]);
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required|string|max:255',
+    //         "jenisKelamin" => 'required|string|in: L, P',
+    //         'tanggalLahir' => 'required|date',
+    //         'alamat' => 'required|string',
+    //         'nomorTelp' => 'required|string',
+    //         'pasFoto' => 'required|string',
+    //         'tanggalMasuk' => 'required|date',
+    //         'tanggalKeluar' => 'required|date',
+    //     ]);
 
-        $siswa = new Siswa([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'username' => $request->username,
-            'tanggalLahir' => $request->tanggalLahir,
-            'alamat' => $request->alamat,
-            'nomorTelp' => $request->nomorTelp,
-            'pasFoto' => $request->pasFoto,
-            'tanggalMasuk' => $request->tanggalMasuk,
-            'tanggalKeluar' => $request->tanggalKeluar,
-        ]);
+    //     $siswa = new Siswa([
+    //         'name' => $request->name,
+    //         'tanggalLahir' => $request->tanggalLahir,
+    //         'alamat' => $request->alamat,
+    //         'nomorTelp' => $request->nomorTelp,
+    //         'pasFoto' => $request->pasFoto,
+    //         'tanggalMasuk' => $request->tanggalMasuk,
+    //         'tanggalKeluar' => $request->tanggalKeluar,
+    //     ]);
 
-        $siswa->save();
-    return redirect()->route('siswa.create')->with('success', 'Siswa berhasil ditambahkan');
-    }
+    //     $siswa->save();
+    // return redirect()->route('siswa.create')->with('success', 'Siswa berhasil ditambahkan');
+    // }
 
     /**
      * Display the specified resource.
@@ -86,9 +80,6 @@ class SiswaController extends Controller
         $Siswa = Siswa::find($id);
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:tsiswa',
-            'password' => 'required|string|min:8',
-            'username' => 'required|string|max:255|unique:tsiswa',
             'tanggalLahir' => 'required|date',
             'alamat' => 'required|string',
             'nomorTelp' => 'required|string',
@@ -98,9 +89,6 @@ class SiswaController extends Controller
         ]);
         $Siswa->update([
             'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password) ? bcrypt($request->password) : $Siswa->password,
-            'username' => $request->username,
             'tanggalLahir' => $request->tanggalLahir,
             'alamat' => $request->alamat,
             'nomorTelp' => $request->nomorTelp,

@@ -8,7 +8,8 @@
     <link rel="icon" type="image/x-icon" href="/favicon.png">
     <meta name="description" content="My UBAYA">
     <meta name="author" content="Cemazz Ko Deck Corp.">
-    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link href="pages/css/themes/icon.css" rel="stylesheet">
     <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet">
@@ -20,14 +21,13 @@
 <body class="fixed-header menu-pin">
     <!-- Content -->
     <div class="login-wrapper" style="background: url('../gradient-bg.png');">
-        <!-- START Register Background Pic Wrapper-->
+        {{-- <!-- START Register Background Pic Wrapper-->
         <div class="bg-pic">
             <!-- START Background Caption-->
 
             <!-- END Background Caption-->
         </div>
-        <!-- END Register Background Pic Wrapper-->
-
+        <!-- END Register Background Pic Wrapper--> --}}
         <!-- START Register Right Container-->
         <div class="login-container bg-white" style="overflow-y: scroll;">
             <div class="p-t-50 d-none d-sm-block"></div>
@@ -43,10 +43,19 @@
                     <h1 class="h3 mb-3 fw-normal text-center">Silakan Registrasi</h1>
                     <form action="/register" method="post">
                         @csrf
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="form-floating">
                             <label for="nama">Name</label>
-                            <input type="nama" name="nama"
-                                class="form-control @error('nama') is-invalid @enderror" id="nama"
+                            <input type="text" name="name"
+                                class="form-control @error('name') is-invalid @enderror" id="name"
                                 placeholder="Name" required>
                             @error('nama')
                                 <div class="invalid-feedback">
@@ -86,7 +95,78 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div><br>
+                        </div>
+                        <div class="form-floating">
+                            <label for="noTelp">Jenis Kelamin</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="jenisKelamin" id="genderMale"
+                                    value="L" checked>
+                                <label class="form-check-label" for="genderMale">
+                                    Laki - Laki
+                                </label>
+                                <input class="form-check-input" type="radio" name="jenisKelamin" id="genderFemale"
+                                    value="P">
+                                <label class="form-check-label" for="genderFemale">
+                                    Perempuan
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-floating">
+                            <label for="tanggalLahir">Tanggal Lahir</label>
+                            <input type="date" name="tanggalLahir"
+                                class="form-control @error('tanggalLahir') is-invalid @enderror" id="tanggalLahir"
+                                placeholder="" required>
+                            @error('tanggalLahir')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-floating">
+                            <label for="alamat">Alamat</label>
+                            <input type="text" name="alamat"
+                                class="form-control @error('alamat') is-invalid @enderror" id="alamat"
+                                placeholder="Alamat" required>
+                            @error('alamat')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-floating">
+                            <label for="nomorTelp">Nomor Telepon</label>
+                            <input type="text" name="nomorTelp"
+                                class="form-control @error('nomorTelp') is-invalid @enderror" id="nomorTelp"
+                                placeholder="Nomor Telepon" required>
+                            @error('nomorTelp')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-floating">
+                            <label for="tanggalMasuk">Tanggal Masuk</label>
+                            <input type="date" name="tanggalMasuk"
+                                class="form-control @error('tanggalMasuk') is-invalid @enderror" id="tanggalMasuk"
+                                placeholder="" required>
+                            @error('tanggalMasuk')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-floating">
+                            <label for="tanggalKeluar">Tanggal Keluar</label>
+                            <input type="date" name="tanggalKeluar"
+                                class="form-control @error('tanggalKeluar') is-invalid @enderror" id="tanggalKeluar"
+                                placeholder="" required>
+                            @error('tanggalKeluar')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <br>
                         <button class="w-100 btn btn-lg btn-primary" type="submit">REGISTER</button>
                     </form>
                 </main>
