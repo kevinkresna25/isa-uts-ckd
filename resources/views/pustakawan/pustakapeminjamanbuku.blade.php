@@ -121,31 +121,15 @@
                 allowClear: true
             });
         });
-
-        // $(document).ready(function() {
-        //     var currentDate = new Date();
-        //     var dateString = ("0" + currentDate.getDate()).slice(-2) + '-' +
-        //         ("0" + (currentDate.getMonth() + 1)).slice(-2) + '-' +
-        //         currentDate.getFullYear();
-
-        //     $('#filter-start-date, #filter-end-date').datepicker({
-        //         dateFormat: 'dd-mm-yy'
-        //     });
-
-        //     $('#filter-start-date').datepicker("setDate", new Date());
-        //     $('#filter-end-date').datepicker("setDate", new Date());
-
-        //     $('#filter-start-date').val(dateString);
-        //     $('#filter-end-date').val(dateString);
-        // });
-
+        
         $(document).ready(function() {
             $('#filter-start-date, #filter-end-date').datepicker({
-                dateFormat: 'dd-mm-yy' // Mengatur format tanggal yang benar
+                autoclose: true,
+                format: 'dd-mm-yyyy'
             });
 
             var currentDate = new Date();
-            $('#filter-start-date, #filter-end-date').datepicker("setDate", currentDate); // Set tanggal saat ini
+            $('#filter-start-date, #filter-end-date').datepicker("setDate", currentDate);
         });
     </script>
 @endsection

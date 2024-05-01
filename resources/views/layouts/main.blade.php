@@ -24,7 +24,7 @@
 
 {{-- TEST ROLE STATIC --}}
 @php
-    $role = 'pustaka';
+    $role = 'siswa';
 @endphp
 
 <body class="fixed-header menu-pin">

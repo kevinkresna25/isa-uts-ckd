@@ -30,18 +30,20 @@
                 <a href='/'>Home</a>
             </li> --}}
 
+
             {{-- Include Sidebar Menu --}}
-            {{-- @include('partials.sidebar.akademik')
+            @include('partials.sidebar.akademik')
             @include('partials.sidebar.perpustakaan')
-            @include('partials.sidebar.sdm') --}}
-            @if (in_array($role, ['siswa', 'guru', 'admin', 'pustaka', 'kepsek']))
+            @include('partials.sidebar.sdm')
+            
+            {{-- @if (in_array($role, ['siswa', 'guru', 'admin', 'pustaka', 'kepsek']))
                 <li>
                     <span class='icon-thumbnail'><i data-feather='home'></i></span>
                     <a href='/'>Home</a>
                 </li>
             @endif
 
-            {{-- Sesuaikan dengan role --}}
+            <!-- Sesuaikan dengan role -->
             @if (in_array($role, ['siswa', 'guru', 'admin']))
                 @include('partials.sidebar.akademik')
             @endif
@@ -50,9 +52,9 @@
                 @include('partials.sidebar.perpustakaan')
             @endif
 
-            @if ($role == 'kepsek')
+            @if (in_array($role, ['siswa', 'guru', 'admin', 'pustaka', 'kepsek']))
                 @include('partials.sidebar.sdm')
-            @endif
+            @endif --}}
 
             <li class="d-lg-none d-xl-none"><a href="https://ws.ubaya.ac.id/oauth2/logout"
                     class="detailed">Logout</a><span class="icon-thumbnail"><i data-feather="lock"></i></span>
