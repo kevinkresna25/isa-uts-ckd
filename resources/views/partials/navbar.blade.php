@@ -6,9 +6,9 @@
     <!-- END MOBILE SIDEBAR TOGGLE -->
     <div class="">
         <div class="brand inline">
-            <img src="https://my.ubaya.ac.id/assets/img/LogoUbaya_Medium.png" alt="logo"
-                data-src="https://my.ubaya.ac.id/assets/img/LogoUbaya_Medium.png"
-                data-src-retina="https://my.ubaya.ac.id/assets/img/LogoUbaya_Medium.png" width="78" height="22">
+            <img src="assets/img/logo-suka-maju.png" alt="logo"
+                data-src="assets/img/logo-suka-maju.png"
+                data-src-retina="assets/img/logo-suka-maju.png" width="78" height="22">
         </div>
     </div>
     <div class="d-flex align-items-center">

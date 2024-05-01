@@ -67,13 +67,13 @@
     </div>
 
     {{-- HASIL TAMPILAN CARI --}}
-    <div class="card" style="display: none;">
+    <div class="card" id="card-body" style="display: none;">
         <div class="card-header border-bottom">
             <div class="card-title font-weight-bold">Daftar Profil</div>
         </div>
         <div class="card-body pt-2">
 
-            <div class="table-responsive my-2">
+            {{-- <div class="table-responsive my-2">
                 <table id="tables" class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -104,10 +104,10 @@
 
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
 
 
-            {{-- <div class="table-responsive my-2">
+            <div class="table-responsive my-2">
                 <table id="tables" class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -151,7 +151,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div> --}}
+            </div>
         </div>
     </div>
 @endsection
@@ -164,13 +164,11 @@
             });
         });
 
-        function toggleTable(tableId) {
-            var tbody = document.getElementById(tableId);
-            if (#t.style.display === "none") {
-                table.style.display = "block";
-            } else {
-                table.style.display = "none";
-            }
+        function showCardBody() {
+            var cardBody = document.getElementById('card-body');
+            cardBody.style.display = 'block';
         }
+
+        document.getElementById('searchButton').addEventListener('click', showCardBody);
     </script>
 @endsection

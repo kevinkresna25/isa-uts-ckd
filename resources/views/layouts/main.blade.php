@@ -5,7 +5,7 @@
     <title>SMA Sukamaju 26</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
     <meta name="description" content="My UBAYA">
     <meta name="author" content="Cemazz Ko Deck Corp.">
     <link href="assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" media="screen" />

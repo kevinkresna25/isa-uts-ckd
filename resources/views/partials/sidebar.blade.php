@@ -5,9 +5,9 @@
     <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
     <!-- BEGIN SIDEBAR MENU HEADER-->
     <div class="sidebar-header">
-        <img src="https://my.ubaya.ac.id/assets/img/LogoUbaya_Medium.png" alt="logo" class="brand"
-            data-src="https://my.ubaya.ac.id/assets/img/LogoUbaya_Medium.png"
-            data-src-retina="https://my.ubaya.ac.id/assets/img/LogoUbaya_Medium.png" height="22">
+        <img src="assets/img/logo-suka-maju.png" alt="logo" class="brand"
+            data-src="assets/img/logo-suka-maju.png"
+            data-src-retina="assets/img/logo-suka-maju.png" height="22">
         <div class="sidebar-header-controls">
             <button aria-label="Toggle Drawer" type="button"
                 class="btn btn-icon-link sidebar-slide-toggle m-l-20 m-r-10" data-pages-toggle="#appMenu">
