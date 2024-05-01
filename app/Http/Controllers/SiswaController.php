@@ -12,7 +12,7 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $listSiswa = Siswa::all(); 
+        $listSiswa = Siswa::all();
         return view('siswa.index', compact('listPegawai'));
     }
 
@@ -59,7 +59,7 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        $Siswa = Siswa::Find($id); 
+        $Siswa = Siswa::Find($id);
         return view('siswa.view', compact('Siswa'));
     }
 
@@ -68,7 +68,7 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        $Siswa = Siswa::Find($id); 
+        $Siswa = Siswa::Find($id);
         return view('siswa.edit', compact('Siswa'));
     }
 
@@ -104,8 +104,30 @@ class SiswaController extends Controller
      */
     public function delete($id)
     {
-        $Siswa = Siswa::find($id);   
+        $Siswa = Siswa::find($id);
         $Siswa->delete();
         return redirect()->route('siswa.index')->with('success', 'Siswa berhasil dihapus');
+    }
+
+    public function search(Request $request)
+    {
+        $query = Siswa::query();
+
+        if ($request->id) {
+            $query->whereIn('idSiswa', explode(',', $request->id));
+        }
+        if ($request->name) {
+            $query->where('nama', 'LIKE', '%' . $request->name . '%');
+        }
+        if ($request->type && $request->type != '') { // Pastikan input tidak kosong
+            $query->where('jenis_peran', $request->type);
+        }
+        if ($request->unit && $request->unit != '') { // Pastikan input tidak kosong
+            $query->where('tKelompokKelas_id', $request->unit);
+        }
+
+        $siswa = $query->get();
+        dd($siswa);
+        return view('umum.pencarianprofil', compact('siswa'));
     }
 }

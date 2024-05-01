@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\PegawaiController; 
+use App\Http\Controllers\RegisterController;
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -128,4 +129,8 @@ Route::get('/datakaryawan', function () {
         'role' => 'kepsek',
     ]);
 });
+
+// Route::get('/pencarianprofil', [SiswaController::class,
+Route::post('/pencarianprofil', [SiswaController::class, 'search'])->name('siswa.search');
+
 

@@ -13,16 +13,9 @@
                 </div>
                 <div class="card-body">
                     <h5>
-                        Selamat datang di SMA Suka Maju 26
+                        Selamat datang di SMA Sukamaju 26
                     </h5>
                     <br>
-
-                    {{-- TEST --}}
-
-                    
-
-                    {{-- END TEST --}}
-
                     <br>
                     <div class="row">
                         <div class="col-12">
