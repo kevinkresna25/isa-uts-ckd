@@ -36,7 +36,7 @@
                     data-src="https://my.ubaya.ac.id/assets/img/web_banner.png"
                     data-src-retina="https://my.ubaya.ac.id/assets/img/web_banner.png" height="60">
                 <div class="p-t-25 d-none d-sm-block"></div>
-                <h2 class="p-t-0"><span class="d-none d-sm-block"></span>SMA Rungkad 01 Surabaya</h2>
+                <h2 class="p-t-0"><span class="d-none d-sm-block"></span>SMA Suka Maju 26 Surabaya</h2>
 
                 <!-- START Login Form -->
                 <main class="form-signin">
@@ -101,7 +101,7 @@
                                 </div>
                                 <div class="d-flex align-items-center mb-2">
                                     <iconify-icon icon="material-symbols:mail"></iconify-icon>
-                                    <span class="ml-2">sma@rungkad.sch.id</span>
+                                    <span class="ml-2">sma@sukamaju26.sch.id</span>
                                 </div>
                             </div>
                             <div class="col-sm-6">

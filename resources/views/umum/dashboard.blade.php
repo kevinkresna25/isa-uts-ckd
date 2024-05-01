@@ -13,22 +13,13 @@
                 </div>
                 <div class="card-body">
                     <h5>
-                        Selamat datang di SMA Rungkad 01
+                        Selamat datang di SMA Suka Maju 26
                     </h5>
                     <br>
 
                     {{-- TEST --}}
 
-                    <div class="col-md-6 mt-3">
-                        <label for="filter-start-date">Rentang Tanggal :</label>
-                        <div class="input-group align-items-center" style="gap: 10px;">
-                            <input type="text" id="filter-start-date" name="start-date" class="form-control"
-                                value="29-04-2024" style="color:black;" required="">
-                            <div>s/d</div>
-                            <input type="text" id="filter-end-date" name="end-date" class="form-control"
-                                value="29-04-2024" style="color:black;" required="">
-                        </div>
-                    </div>
+                    
 
                     {{-- END TEST --}}
 
@@ -153,17 +144,4 @@
             <!-- END card -->
         </div>
     </div>
-@endsection
-
-@section('script')
-    <script>
-        $(document).ready(function() {
-            $('#filter-start-date, #filter-end-date').datepicker({
-                dateFormat: 'dd-mm-yy' // Format tanggal sesuai kebutuhan
-            });
-        });
-        $('#filter-start-date, #filter-end-date').datepicker({
-            format: 'dd-mm-yy'
-        });
-    </script>
 @endsection

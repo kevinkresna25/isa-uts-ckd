@@ -97,3 +97,4 @@ Route::get('/datakaryawan', function () {
         'role' => 'kepsek',
     ]);
 });
+

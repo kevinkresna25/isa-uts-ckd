@@ -30,7 +30,7 @@ class PinjamBukuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "tSiswa_idSiswa" => "required|exists:tsiswa, idSiswa", 
+            "tSiswa_idSiswa" => "required|exists:tsiswa, idSiswa",
             "tBuku_idBuku" => "required|exists: tbuku, idBuku ",
             "tanggalPinjam" => "required|date",
             "tanggalSeharusnyaKembali" => "required|date|after:tanggalPinjam",
@@ -39,7 +39,7 @@ class PinjamBukuController extends Controller
             "tPegawai_idPegawai" => "required|exists:tpegawai,idPegawai"
         ]);
         $pinjamBuku = new PinjamBuku([
-            "tSiswa_idSiswa" => $request->tSiswa_idSiswa, 
+            "tSiswa_idSiswa" => $request->tSiswa_idSiswa,
             "tBuku_idBuku" => $request->tBuku_idBuku,
             "tanggalPinjam" => $request->tanggalPinjam,
             "tanggalSeharusnyaKembali" => $request->tanggalSeharusnyaKembali,
@@ -48,14 +48,14 @@ class PinjamBukuController extends Controller
         ]);
         $pinjamBuku->save();
         return redirect()->route('pinjamBuku.create')->with('success', 'Buku berhasil dipinjam');
-        }
+    }
 
     /**
      * Display the specified resource.
      */
     public function show($id)
     {
-        $pinjamBuku = PinjamBuku::find($id); 
+        $pinjamBuku = PinjamBuku::find($id);
         return view('pinjamBuku.view', compact('pinjamBuku'));
     }
 
@@ -64,7 +64,7 @@ class PinjamBukuController extends Controller
      */
     public function edit($id)
     {
-        $pinjamBuku = PinjamBuku::find($id); 
+        $pinjamBuku = PinjamBuku::find($id);
         return view('pinjamBuku.edit', compact('pinjamBuku'));
     }
 
@@ -73,7 +73,7 @@ class PinjamBukuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pinjamBuku = PinjamBuku::find($id); 
+        $pinjamBuku = PinjamBuku::find($id);
         $request->validate([
             "tanggalDikembalikan" => "date|after:tanggalPinjam",
             "statusKembali" => "required|boolean",

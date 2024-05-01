@@ -34,7 +34,7 @@
             {{-- @include('partials.sidebar.akademik')
             @include('partials.sidebar.perpustakaan')
             @include('partials.sidebar.sdm') --}}
-            @if (in_array($role, ['siswa', 'guru', 'admin', 'pustakawan', 'kepsek']))
+            @if (in_array($role, ['siswa', 'guru', 'admin', 'pustaka', 'kepsek']))
                 <li>
                     <span class='icon-thumbnail'><i data-feather='home'></i></span>
                     <a href='/'>Home</a>
@@ -46,7 +46,7 @@
                 @include('partials.sidebar.akademik')
             @endif
 
-            @if (in_array($role, ['siswa', 'pustakawan']))
+            @if (in_array($role, ['siswa', 'pustaka']))
                 @include('partials.sidebar.perpustakaan')
             @endif
 

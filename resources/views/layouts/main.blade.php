@@ -2,17 +2,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SMA Rungkad 01</title>
+    <title>SMA Suka Maju 26</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="/favicon.png">
     <meta name="description" content="My UBAYA">
     <meta name="author" content="Cemazz Ko Deck Corp.">
-
+    <link href="assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="pages/css/themes/icon.css" rel="stylesheet">
     <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css"
+        media="screen">
+
+    @yield('head')
+
     <link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
     <link class="main-stylesheet" href="pages/css/themes/light.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.css" rel="stylesheet">
@@ -20,7 +24,7 @@
 
 {{-- TEST ROLE STATIC --}}
 @php
-    $role = 'guru';
+    $role = 'pustaka';
 @endphp
 
 <body class="fixed-header menu-pin">
@@ -72,7 +76,7 @@
 
                     <!-- END ROW -->
                 </div>
-               
+
                 <!-- END CONTAINER FLUID -->
             </div>
             <!-- END PAGE CONTENT -->
@@ -89,14 +93,17 @@
     <script src="assets/plugins/feather-icons/feather.min.js" type="text/javascript"></script>
     <script src="assets/plugins/modernizr.custom.js" type="text/javascript"></script>
     <script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
 
     {{-- Header --}}
     <script src="assets/plugins/popper/umd/popper.min.js" type="text/javascript"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/plugins/select2/js/select2.full.min.js"></script>
 
     {{-- Body --}}
     <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="assets/js/sweetalert2.all.min.js"></script>
 
     @yield('script')
 
