@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -17,18 +18,33 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'username' => ['required', 'min:3', 'max:45', 'unique:users'],
+            'username' => ['required', 'min:3', 'max:45'],
             'password' => 'required'
         ]);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return $this->redirectBasedOnRole();
         }
 
         return back()->with('loginError', 'Login failed!');
     }
-
+    protected function redirectBasedOnRole()
+    {
+        $role = Auth::user()-> role; 
+        switch ($role) {
+            case 'Admin':
+                return redirect('/admin/dashboard');
+            case 'Siswa':
+                return redirect('/siswa/dashboard');
+            case 'Pustakawan':
+                return redirect('/pustakawan/dashboard');
+            case 'Guru':
+                return redirect('/guru/dashboard');
+            default:
+                return redirect('auth.login');
+        }
+    }
     public function logout()
     {
         Auth::logout();
@@ -37,6 +53,6 @@ class LoginController extends Controller
 
         request()->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('auth.login');
     }
 }

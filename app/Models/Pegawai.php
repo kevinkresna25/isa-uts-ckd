@@ -15,25 +15,25 @@ class Pegawai extends Model
     protected $table = 'tPegawai'; 
     protected $fillable = [
         "nama",
-        "email",
-        "email_verified_at",
-        "password",
-        "username",
         "alamat",
         "tanggalMasuk",
-        "peran",
         "nomorTelp",
-        "remember_token",
         "created_at",
-        "updated_at"
+        "updated_at",
+        "user_id"
     ];
     protected $guarded = [
         "idPegawai"
     ]; 
     protected $hidden = [
-        "password"
+        "created_at",
+        "updated_at",
+        "user_id"
     ]; 
     
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
     function Kelas()
     {
         return $this->hasMany(Kelas::class, "idGuru", "idPegawai");
