@@ -32,9 +32,9 @@
         <div class="login-container bg-white" style="overflow-y: scroll;">
             <div class="p-t-50 d-none d-sm-block"></div>
             <div class="p-l-50 p-r-50 p-t-0 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-                <img src="https://my.ubaya.ac.id/assets/img/web_banner.png" alt="logo"
-                    data-src="https://my.ubaya.ac.id/assets/img/web_banner.png"
-                    data-src-retina="https://my.ubaya.ac.id/assets/img/web_banner.png" height="60">
+                <img src="assets/img/logo-suka-maju.png" alt="logo"
+                    data-src="assets/img/logo-suka-maju.png"
+                    data-src-retina="assets/img/logo-suka-maju.png" height="60">
                 <div class="p-t-25 d-none d-sm-block"></div>
                 <h2 class="p-t-0"><span class="d-none d-sm-block"></span>SMA Sukamaju 26 Surabaya</h2>
 
@@ -203,4 +203,7 @@
     </div>
 </body>
 
+<script>
+    
+</script>
 </html>
