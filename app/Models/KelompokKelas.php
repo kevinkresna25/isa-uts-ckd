@@ -26,6 +26,10 @@ class KelompokKelas extends Model
     {
         return $this->belongsTo(Pegawai::class, "idGuru", "idPegawai"); 
     }
+    function Kelas()
+    {
+        return $this->hasMany(Kelas::class, "tkelompokkelas_id", "id"); 
+    }
     function TahunSekolah()
     {
         return $this->belongsto(TahunSekolah::class, "tahunSekolah_idtahunSekolah", "idTahunSekolah"); 

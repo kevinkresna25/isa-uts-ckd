@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('tanggal')->nullable();
             $table->time('jamKelas')->nullable();
             $table->foreignId('tahunSekolah_idtahunSekolah');
+            $table->foreignId('tkelompokkelas_id');
             $table->timestamps();
         });
     }

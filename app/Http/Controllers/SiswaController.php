@@ -34,6 +34,7 @@ class SiswaController extends Controller
             'email' => 'required|string|email|max:255|unique:tsiswa',
             'password' => 'required|string|min:8',
             'username' => 'required|string|max:255|unique:tsiswa',
+            "jenisKelamin" => 'required|string|in: L, P',
             'tanggalLahir' => 'required|date',
             'alamat' => 'required|string',
             'nomorTelp' => 'required|string',
@@ -47,7 +48,7 @@ class SiswaController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'username' => $request->username,
-            'tanggalLahir' => 'required|date',
+            'tanggalLahir' => $request->tanggalLahir,
             'alamat' => $request->alamat,
             'nomorTelp' => $request->nomorTelp,
             'pasFoto' => $request->pasFoto,
@@ -100,7 +101,7 @@ class SiswaController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password) ? bcrypt($request->password) : $Siswa->password,
             'username' => $request->username,
-            'tanggalLahir' => 'required|date',
+            'tanggalLahir' => $request->tanggalLahir,
             'alamat' => $request->alamat,
             'nomorTelp' => $request->nomorTelp,
             'pasFoto' => $request->pasFoto,
@@ -116,7 +117,6 @@ class SiswaController extends Controller
     public function delete($id)
     {
         $Siswa = Siswa::find($id);   
-        $Siswa = Siswa::find($id);
         $Siswa->delete();
         return redirect()->route('siswa.index')->with('success', 'Siswa berhasil dihapus');
     }

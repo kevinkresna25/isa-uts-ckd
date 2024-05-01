@@ -12,7 +12,8 @@ class PinjamBuku extends Model
     protected $table = 'tPinjamBuku'; 
     protected $fillable = [ 
         "tanggalPinjam",
-        "tanggalKembali",
+        "tanggalSeharusnyaKembali",
+        "tanggalDikembalikan",
         "statusKembali"
     ]; 
 }

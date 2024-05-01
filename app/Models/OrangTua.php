@@ -34,7 +34,7 @@ class OrangTua extends Model
         "password"
     ]; 
 
-    function OrangTua()
+    function Anak()
     {
         return $this->belongsToMany(Siswa::class, 'tOrangTua_has_tSiswa', 'tOrangTua_id', 'tSiswa_idSiswa');
     }

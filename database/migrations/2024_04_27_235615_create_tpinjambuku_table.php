@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id('id'); 
             $table->foreignId('tSiswa_idSiswa');
             $table->foreignId('tBuku_idBuku');
-            $table->dateTime('tanggalPinjam')->nullable();
-            $table->dateTime('tanggalKembali')->nullable();
-            $table->boolean('statusKembali'); 
+            $table->dateTime('tanggalPinjam');
+            $table->dateTime('tanggalSeharusnyaKembali')->nullable();
+            $table->dateTime('tanggalDikembalikan')->nullable();
+            $table->tinyInteger('statusKembali')->default(0); 
             $table->foreignId('tPegawai_idPegawai');
             $table->timestamps();
             
