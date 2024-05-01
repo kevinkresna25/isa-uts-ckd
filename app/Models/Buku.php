@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Buku extends Model
 {
+    public $timestamps = false;
+
     use HasFactory;
 
-    protected $table = 'tBuku'; 
+    protected $table = 'tbuku';
+
     protected $fillable = [
         "namaBuku",
         "pengarangBuku",
@@ -20,5 +23,4 @@ class Buku extends Model
     protected $guarded = [
         "idBuku"
     ];
-    
 }
