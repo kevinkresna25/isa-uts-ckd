@@ -24,7 +24,7 @@ class KehadiranController extends Controller
     {
         $presensi = Kehadiran::Find($id); 
         $request->validate([
-            'statusHadir' => 'required|boolean'
+            'statusHadir' => 'required|string|in:Hadir, Sakit, Izin, Tidak Hadir'
         ]);
         $presensi->update(
             [
