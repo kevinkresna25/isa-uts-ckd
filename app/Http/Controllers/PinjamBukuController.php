@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buku;
+use App\Models\Siswa;
 use App\Models\PinjamBuku;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PinjamBukuController extends Controller
 {
@@ -21,7 +25,9 @@ class PinjamBukuController extends Controller
      */
     public function create()
     {
-        return view('pinjamBuku.create');
+        $tsiswa = Siswa::all();
+        $tbuku = Buku::all();
+        return view('pustakawan.pustakapeminjamanbuku', compact('tsiswa', 'tbuku'));
     }
 
     /**
@@ -30,24 +36,23 @@ class PinjamBukuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "tSiswa_idSiswa" => "required|exists:tsiswa, idSiswa",
-            "tBuku_idBuku" => "required|exists: tbuku, idBuku ",
-            "tanggalPinjam" => "required|date",
-            "tanggalSeharusnyaKembali" => "required|date|after:tanggalPinjam",
-            "tanggalDikembalikan" => "date|after:tanggalPinjam",
-            "statusKembali" => "required|boolean",
-            "tPegawai_idPegawai" => "required|exists:tpegawai,idPegawai"
+            'tSiswa_idSiswa' => 'required|exists:tsiswa,idSiswa',
+            'tBuku_idBuku' => 'required|exists:tbuku,idBuku',
+            'tanggalPinjam' => 'required|date'
         ]);
-        $pinjamBuku = new PinjamBuku([
-            "tSiswa_idSiswa" => $request->tSiswa_idSiswa,
-            "tBuku_idBuku" => $request->tBuku_idBuku,
-            "tanggalPinjam" => $request->tanggalPinjam,
-            "tanggalSeharusnyaKembali" => $request->tanggalSeharusnyaKembali,
-            "statusKembali" => $request->statusKembali,
-            "tPegawai_idPegawai" => $request->tPegawai_idPegawai,
+
+        // Ambil ID pegawai yang sedang login
+        $pegawaiId = Auth::user()->id;
+
+        // Simpan data peminjaman buku ke dalam tabel tpinjambuku
+        PinjamBuku::create([
+            'tSiswa_idSiswa' => $request->tSiswa_idSiswa,
+            'tBuku_idBuku' => $request->tBuku_idBuku,
+            'tanggalPinjam' => $request->tanggalPinjam,
+            'tPegawai_idPegawai' => $pegawaiId,
         ]);
-        $pinjamBuku->save();
-        return redirect()->route('pinjamBuku.create')->with('success', 'Buku berhasil dipinjam');
+
+        return redirect()->back()->with('success', 'Peminjaman buku berhasil ditambahkan');
     }
 
     /**
