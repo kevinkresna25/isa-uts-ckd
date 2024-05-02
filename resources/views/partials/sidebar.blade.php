@@ -25,10 +25,10 @@
     <div class="sidebar-menu">
         <!-- BEGIN SIDEBAR MENU ITEMS-->
         <ul class="menu-items">
-            {{-- <li>
+            <li>
                 <span class='icon-thumbnail'><i data-feather='home'></i></span>
                 <a href='/'>Home</a>
-            </li> --}}
+            </li>
 
             <li>
                 <span class='icon-thumbnail'><i data-feather='home'></i></span>

@@ -36,12 +36,7 @@ Route::group(
                 'title' => 'Dashboard',
             ]);
         });
-
-        Route::get('/pencarianprofil', function () {
-            return view('umum.pencarianprofil', [
-                'title' => 'Pencarian Profil',
-            ]);
-        });
+        Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
     }
 );
 Route::group(
