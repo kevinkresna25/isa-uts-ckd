@@ -30,17 +30,17 @@
                 <a href='/'>Home</a>
             </li> --}}
 
-
+            <li>
+                <span class='icon-thumbnail'><i data-feather='home'></i></span>
+                <a href='/'>Home</a>
+            </li>
             {{-- Include Sidebar Menu --}}
             @include('partials.sidebar.akademik')
             @include('partials.sidebar.perpustakaan')
             @include('partials.sidebar.sdm')
             
             {{-- @if (in_array($role, ['siswa', 'guru', 'admin', 'pustaka', 'kepsek']))
-                <li>
-                    <span class='icon-thumbnail'><i data-feather='home'></i></span>
-                    <a href='/'>Home</a>
-                </li>
+                
             @endif
 
             <!-- Sesuaikan dengan role -->
