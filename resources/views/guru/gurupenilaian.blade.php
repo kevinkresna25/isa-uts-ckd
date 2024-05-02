@@ -66,7 +66,7 @@
             <a href="/guruTambahPenilaian" class="btn btn-primary align-right">Tambah Nilai</a>
         </div>
     </div>
-    
+{{--     
     <div class="row" id="edit" style="display: none;">
         <div class="col-12">
             <div class="card">
@@ -97,5 +97,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

@@ -15,7 +15,7 @@ class PegawaiController extends Controller
     public function index()
     {
         $listPegawai = Pegawai::all(); 
-        return view('kepsek.datakaryawan', compact('listPegawai'));
+        return view('kepsek.kepsekdatakaryawan', compact('listPegawai'));
     }
 
     public function create()
