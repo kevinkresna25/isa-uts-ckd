@@ -4,6 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Rapor;
 use Illuminate\Http\Request;
+use App\Models\Siswa;
+use App\Models\TahunSekolah;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Subjek; 
+use PHPUnit\TextUI\Command\ListTestSuitesCommand; 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use function Illuminate\Support\Facades\Crypt\encrypt; 
+
 
 class RaporController extends Controller
 {
@@ -13,15 +22,19 @@ class RaporController extends Controller
     public function index()
     {
         $listRapor = Rapor::all(); 
-        return view('rapor.index', compact('listRapor'));
-    }
+        $listSiswa = Siswa::all(); 
+        return view('guru.gurupenilaian', compact('listRapor', 'listSiswa'));
+}
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('rapor.create');
+        $listSiswa = Siswa::all(); 
+        $listTahun = TahunSekolah::all();
+        $listSubjek = Subjek::all();
+        return view('guru.guruPenilaianDetail', compact('listSiswa', 'listTahun', 'listSubjek'));    
     }
 
     /**
@@ -30,38 +43,36 @@ class RaporController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "nilaiUTS" => "required|double",
-            "nilaiUAS"  => "double",
-            "nilaiTugas"  => "required|double",
-            "nilaiKeterampilan"  => "required|double",
-            "nilaiAfektif"  => "required|double",
+            "nilaiUTS" => "required|integer",
+            "nilaiUAS"  => "integer",
+            "nilaiAfektif"  => "required|integer",
             "pendapatGuru"  => "required|string",
-            "tSiswa_idSiswa" => "required|exists:tsiswa, idSiswa", 
-            "idGuru" => "required|exists:tpegawai,idPegawai",
-            "tahunSekolah_idtahunSekolah" => "required|exists:tahunsekolah, idtahunSekolah"
+            "tSiswa_idSiswa" => "required|exists:tsiswa,idSiswa", 
+            "tahunSekolah_idtahunSekolah" => "required|exists:tahunSekolah,idtahunSekolah"
         ]);
+        $pegawaiId = Auth::user()->id;
         $rapor = new Rapor([
             "nilaiUTS" => $request-> nilaiUTS,
             "nilaiUAS"  =>$request->nilaiUAS,
-            "nilaiTugas"  => $request->nilaiTugas,
-            "nilaiKeterampilan"  =>$request-> nilaiKeterampilan,
             "nilaiAfektif"  => $request->nilaiAfektif,
             "pendapatGuru"  => $request->pendapatGuru,
             "tSiswa_idSiswa" => $request->tSiswa_idSiswa, 
-            "idGuru" => $request->idGuru,
+            "idGuru" => $pegawaiId,
+            "tSubjek_id" => $request->tSubjek_id,
             "tahunSekolah_idtahunSekolah" => $request->tahunSekolah_idtahunSekolah
         ]);
         $rapor->save(); 
-        return redirect()->route('rapor.create')->with('success', 'Rapor berhasil ditambahkan');
+        return redirect()->back()->with('success', 'Rapor berhasil ditambahkan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show()
     {
-        $rapor = Rapor::find($id); 
-        return view('rapor.view', compact('rapor'));
+        $id = Auth::user()->siswa->idSiswa;
+        $listRapor = Rapor::where('tSiswa_idSiswa', $id)->get(); 
+        return view('siswa.siswapenilaian', compact('listRapor'));
     }
 
     /**
@@ -83,8 +94,6 @@ class RaporController extends Controller
         $request->validate([
             "nilaiUTS" => "required|double",
             "nilaiUAS"  => "double",
-            "nilaiTugas"  => "required|double",
-            "nilaiKeterampilan"  => "required|double",
             "nilaiAfektif"  => "required|double",
             "pendapatGuru"  => "required|string",
             "tSiswa_idSiswa" => "required|exists:tsiswa, idSiswa", 
@@ -94,8 +103,6 @@ class RaporController extends Controller
         $rapor->update([
             "nilaiUTS" => $request-> nilaiUTS,
             "nilaiUAS"  =>$request->nilaiUAS,
-            "nilaiTugas"  => $request->nilaiTugas,
-            "nilaiKeterampilan"  =>$request-> nilaiKeterampilan,
             "nilaiAfektif"  => $request->nilaiAfektif,
             "pendapatGuru"  => $request->pendapatGuru,
             "tSiswa_idSiswa" => $request->tSiswa_idSiswa, 
@@ -108,6 +115,16 @@ class RaporController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    public function generatePDF()
+    {
+        $id = Auth::user()->siswa->idSiswa;
+        $listRapor = Rapor::where('tSiswa_idSiswa', $id)->get(); 
+
+        $data = ['title' => 'domPDF in Laravel 10'];
+        $pdf = Pdf::loadView('siswa.siswapenilaian', $data, compact('listRapor'));
+        return $pdf->stream();
+    }
+
     public function delete($id)
     {
         $rapor = Rapor::find($id); 

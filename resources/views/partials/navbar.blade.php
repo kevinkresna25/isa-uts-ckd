@@ -14,7 +14,7 @@
     <div class="d-flex align-items-center">
         <!-- START User Info-->
         <div class="pull-left p-r-10 fs-14 d-lg-inline-block d-none m-l-20">
-            <span class="semi-bold">SI UDIN</span>
+            <span class="semi-bold">{{Auth::user()->username}}</span>
             <small
                 style="display: block; margin-top: -1.3em; position: relative; top: 1em; color: gray; text-align: right;">160422077</small>
         </div>
@@ -30,10 +30,10 @@
                 </span>
             </button>
             <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-                <a href="#" class="dropdown-item"><span>Signed in as <br /><b>SI UDIN</b>
-                        (160422077)</span></a>
+                <a href="#" class="dropdown-item"><span>Signed in as <br /><b>{{Auth::user()->username}}</b>
+                </span></a>
                 <div class="dropdown-divider"></div>
-                <a href="https://ws.ubaya.ac.id/oauth2/logout" class="dropdown-item">Logout</a>
+                <a href="/logout" class="dropdown-item">Logout</a>
                 <div class="dropdown-divider"></div>
                 <span class="dropdown-item fs-12 hint-text" id="servertime"></span>
             </div>

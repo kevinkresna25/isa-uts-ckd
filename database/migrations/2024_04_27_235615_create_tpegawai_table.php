@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nama', 45);
             $table->string('alamat', 45)->nullable();
             $table->date('tanggalMasuk');
-            $table->string('alamat', 45); 
             $table->foreignId('user_id'); 
             $table->foreign('user_id')
                     ->references('id')

@@ -7,66 +7,63 @@
 @endsection
 
 @section('card')
-    @include('umum.datainfo')
+
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header border-bottom">
-                    <div class="card-title font-weight-bold" id="jadwalkuliah">Input Rapor</div>
+                    <div class="card-title font-weight-bold">Data Guru</div>
                 </div>
                 <div class="card-body pt-3">
-                    <div class="table-responsive">
-                        <table class="table table-hover" id="table-listambilmk">
-                            <tbody>
-                                <tr>
-                                    <td style="border-bottom: 0;">Pilih Kelas</td>
-                                    <td><input type="text" name="nama"></td>
-                                </tr>
-                                <tr>
-                                    <td style="border-bottom: 0;">Pilih Mata Pelajaran</td>
-                                    <td><input type="text" name="nama"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="row">
+                        <div class="col col-md-3">Id</div>
+                        <div class="col col-md-9">: {{ Auth::user()->id }}</div>
+                        <div class="col col-md-3">Nama</div>
+                        <div class="col col-md-9">: {{ Auth::user()->pegawai->nama }}</div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header border-bottom">
-                    <div class="card-title font-weight-bold" id="jadwalkuliah">Input Nilai Siswa</div>
+                    <div class="card-title font-weight-bold" id="jadwalkuliah">Penilaian Siswa</div>
                 </div>
-                <div class="card-body pt-3">
+                <div class="card-body pt-3 ">
+                    <div class="row">
                     <div class="table-responsive">
                         <table class="table table-hover" id="table-listambilmk">
                             <thead>
                                 <tr>
-                                    <th scope="row">No </th>
-                                    <th scope="row">Nama</th>
-                                    <th scope="row">NISN</th>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nama Siswa</th>
+                                    <th scope="col">Mata Pelajaran</th>
+                                    <th scope="col">Nilai UTS</th>
+                                    <th scope="col">Nilai UAS</th>
+                                    <th scope="col">Nilai Afektif</th>
+                                    <th scope="col">Pendapat Guru</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td style="border-bottom: 0;">1</td>
-                                    <td style="border-bottom: 0;">Lloyd Montgomery Garmadon</td>
-                                    <td style="border-bottom: 0;">123456789</td>
-                                    <td>
-                                        <button onclick="toggleTable('edit')" type="button"
-                                            class="btn btn-primary">Edit</button>
-                                    </td>
-                                </tr>
+                                @foreach ($listRapor as $rapor)
+                                    <tr>
+                                        <td style="border-bottom: 0;">{{ $rapor->id }}</td>
+                                        <td style="border-bottom: 0;">{{ $rapor->siswa->nama }}</td>
+                                        <td style="border-bottom: 0;">{{ $rapor->Subjek->namaSubjek }}</td>
+                                        <td style="border-bottom: 0;">{{ $rapor->nilaiUTS }}</td>
+                                        <td style="border-bottom: 0;">{{ $rapor->nilaiUAS }}</td>
+                                        <td style="border-bottom: 0;">{{ $rapor->nilaiAfektif }}</td>
+                                        <td style="border-bottom: 0;">{{ $rapor->pendapatGuru }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
+            <a href="/guruTambahPenilaian" class="btn btn-primary align-right">Tambah Nilai</a>
         </div>
     </div>
     
@@ -101,17 +98,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('script')
-    <script>
-        function toggleTable(tableId) {
-            var table = document.getElementById(tableId);
-            if (table.style.display === "none") {
-                table.style.display = "block";
-            } else {
-                table.style.display = "none";
-            }
-        }
-    </script>
 @endsection

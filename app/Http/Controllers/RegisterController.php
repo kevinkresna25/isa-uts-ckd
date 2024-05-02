@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Siswa; 
+use Illuminate\Support\Facades\Crypt;
+use function Illuminate\Support\Facades\Crypt\encrypt;
 
 class RegisterController extends Controller
 {
@@ -54,7 +56,6 @@ class RegisterController extends Controller
             'tanggalKeluar' => $request->tanggalKeluar,
         ]);
         $siswa->save();
-        dd($siswa); 
 
         // $request->session()->flash('success', 'Registration successfull! Please login');
 

@@ -17,10 +17,12 @@ class Rapor extends Model
     protected $fillable = [ 
         "nilaiUTS",
         "nilaiUAS",
-        "nilaiTugas",
-        "nilaiKeterampilan",
         "nilaiAfektif",
         "pendapatGuru",
+        "tSubjek_id",
+        "idGuru",
+        "tSiswa_idSiswa",
+        "tahunSekolah_idtahunSekolah"
     ];
 
     function Siswa()
@@ -37,6 +39,6 @@ class Rapor extends Model
     }
     function Subjek()
     {
-        return $this->belongsto(Subjek::class, "tSubjek_id", "id"); 
+        return $this->belongsto(Subjek::class,"tSubjek_id","id"); 
     }
 }

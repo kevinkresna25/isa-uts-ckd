@@ -24,27 +24,12 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return $this->redirectBasedOnRole();
+            return view('umum.dashboard');
         }
 
         return back()->with('loginError', 'Login failed!');
     }
-    protected function redirectBasedOnRole()
-    {
-        $role = Auth::user()-> role; 
-        switch ($role) {
-            case 'Admin':
-                return redirect('/admin/dashboard');
-            case 'Siswa':
-                return redirect('/siswa/dashboard');
-            case 'Pustakawan':
-                return redirect('/pustakawan/dashboard');
-            case 'Guru':
-                return redirect('/guru/dashboard');
-            default:
-                return redirect('auth.login');
-        }
-    }
+
     public function logout()
     {
         Auth::logout();

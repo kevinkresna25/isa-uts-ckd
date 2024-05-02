@@ -16,8 +16,6 @@ return new class extends Migration
             $table->foreignId('tSiswa_idSiswa');
             $table->double('nilaiUTS')->nullable();
             $table->double('nilaiUAS')->nullable();
-            $table->double('nilaiTugas')->nullable();
-            $table->double('nilaiKeterampilan')->nullable();
             $table->double('nilaiAfektif')->nullable();
             $table->foreignId('idGuru');
             $table->string('pendapatGuru', 45)->nullable();

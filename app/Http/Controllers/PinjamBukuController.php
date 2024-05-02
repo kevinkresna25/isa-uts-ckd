@@ -58,10 +58,11 @@ class PinjamBukuController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show()
     {
-        $pinjamBuku = PinjamBuku::find($id);
-        return view('pinjamBuku.view', compact('pinjamBuku'));
+        $id = Auth::user()->siswa->idSiswa;
+        $pinjamBuku = PinjamBuku::where('tSiswa_idSiswa', $id)->get(); 
+        return view('siswa.siswapeminjamanbuku', compact('pinjamBuku'));
     }
 
     /**

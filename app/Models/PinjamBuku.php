@@ -15,16 +15,19 @@ class PinjamBuku extends Model
         "tanggalPinjam",
         "tanggalSeharusnyaKembali",
         "tanggalDikembalikan",
+        "tSiswa_idSiswa",
+        "tBuku_idBuku", 
+        "tPegawai_idPegawai", 
         "statusKembali"
     ];
 
     public function siswa()
     {
-        return $this->belongsTo(Siswa::class, 'tSiswa_idSiswa');
+        return $this->belongsTo(Siswa::class, 'tSiswa_idSiswa', 'idSiswa');
     }
 
     public function buku()
     {
-        return $this->belongsTo(Buku::class, 'tBuku_idBuku');
+        return $this->belongsTo(Buku::class, 'tBuku_idBuku', 'idBuku');
     }
 }
